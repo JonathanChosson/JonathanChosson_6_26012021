@@ -4,6 +4,7 @@ const bobyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 const helmet = require('helmet');
+require('dotenv').config();
 
 const userRoutes = require('./routes/user');
 
@@ -12,7 +13,7 @@ const app = express();
 app.use(helmet())
 
 // Initialise la connexion à mongoDB
-mongoose.connect('mongodb+srv://admin:pkoipa@cluster0.0fbz5.mongodb.net/projet6?retryWrites=true&w=majority', 
+mongoose.connect(process.env.DB_INFORMATION, 
     {   useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true})
