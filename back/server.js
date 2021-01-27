@@ -1,6 +1,7 @@
 const http = require('http');
 const app = require('./app');
 
+//Fonction pour verifier que le port 3000 est libre
 const normalizePort = val => {
 const port = parseInt(val, 10);
 
