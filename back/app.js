@@ -7,6 +7,7 @@ const helmet = require('helmet');
 require('dotenv').config();
 
 const userRoutes = require('./routes/user');
+const sauceRoutes = require('./routes/sauce');
 
 const app = express();
 // Sécurisation des headers
@@ -33,8 +34,9 @@ app.use((req, res, next) => {
 //Utilise le package bodyParser
 app.use(bobyParser.json());
 
-
+app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/auth', userRoutes);
+app.use('/api/sauces', sauceRoutes);
 
 
 module.exports = app;
