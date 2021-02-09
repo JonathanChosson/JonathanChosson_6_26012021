@@ -10,7 +10,7 @@ exports.createSauce = (req, res, next) => {
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}` 
     });
     sauce.save()
-    .then(() => res.status(201).json({ message: 'Sauce crée!' }))
+    .then(() => res.status(201).json({ message: 'Sauce créée!' }))
     .catch(error => res.status(400).json({ error }));
 };
 
@@ -37,12 +37,14 @@ exports.like = (req, res, next) => {
         .then( sauce => { res.status(201).json({ message: `Vous n'aimez pas la sauce ${sauce.name}` }); })
         .catch((error) => { res.status(400).json({ error: error }); });
     break;
-        //On verfie le précédant choix de l'User et remet à 0 
+
+        //On verifie le précédent choix de l'User et remet à 0 
     case 0:
         Sauce.findOne({_id: req.params.id})
         .then(sauce => {
-            if (sauce.usersLiked == req.body.userId){
-                console.log("userlike dejà");
+            const userLike = sauce.usersLiked.filter(ArrayUserLiked => req.body.userId);
+            const userDislike = sauce.usersDisliked.filter(ArrayUserLiked => req.body.userId);
+            if (userLike.length != null ){
                 Sauce.updateOne({ _id: req.params.id }, {
                     $inc: {likes: -1},
                     $pull: { usersLiked: req.body.userId },
@@ -51,7 +53,7 @@ exports.like = (req, res, next) => {
                 .then( sauce => { res.status(201).json({ message: `Vous n'aimez plus la sauce ${sauce.name}` }); })
                 .catch((error) => { res.status(400).json({ error: error }); });
             }
-            else if (sauce.usersDisliked == req.body.userId){
+            else if (userDislike.length != null){
                 Sauce.updateOne({ _id: req.params.id }, {
                     $inc: {dislikes: -1},
                     $pull: { usersDisliked: req.body.userId },

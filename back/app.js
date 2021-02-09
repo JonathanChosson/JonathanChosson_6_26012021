@@ -10,8 +10,9 @@ const userRoutes = require('./routes/user');
 const sauceRoutes = require('./routes/sauce');
 
 const app = express();
+
 // Sécurisation des headers
-app.use(helmet())
+app.use(helmet());
 
 // Initialise la connexion à mongoDB
 mongoose.connect(process.env.DB_INFORMATION, 
