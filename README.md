@@ -25,7 +25,8 @@ Objectif une API sécurisée pour une application d'avis gastronomiques :
 <ul>
     <li>Ouvrir un terminal dans le dossier back</li>
     <li>Lancer la commande "npm install"</li>
-	<li>Lancer la commande "nodemon server.js"</li>
+    <li>Lancer la commande "npm install -g nodemon"</li>
+    <li>Lancer la commande "nodemon server.js"</li>
 </ul>
 <ul>
     <li>Ouvrir votre navigateur web</li>
