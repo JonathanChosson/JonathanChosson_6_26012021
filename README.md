@@ -34,7 +34,7 @@ Objectif une API sécurisée pour une application d'avis gastronomiques :
 
 ## Auteur
 <img src='https://img.shields.io/badge/Autor-Chosson Jonathan-blue' />
-[![GitHub followers](https://img.shields.io/github/followers/Naereen.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/Naereen?tab=followers)
+<img src="https://img.shields.io/github/followers/JonathanChosson.svg?style=social&label=Follow&maxAge=2592000" />
 
 ## Licence 
 <img src='https://forthebadge.com/images/badges/open-source.svg' />
